@@ -1,0 +1,92 @@
+{
+  "provenance": "Seeded Bernoulli teaching generator; probabilities chosen as inputs",
+  "seed": 114,
+  "edges": [
+    {
+      "source": 0,
+      "target": 0,
+      "confirmed_injections": 1000,
+      "propagated": 197,
+      "point": 0.197,
+      "upper": 0.2288567651971951
+    },
+    {
+      "source": 0,
+      "target": 1,
+      "confirmed_injections": 1000,
+      "propagated": 295,
+      "point": 0.295,
+      "upper": 0.33083689176326203
+    },
+    {
+      "source": 1,
+      "target": 1,
+      "confirmed_injections": 1000,
+      "propagated": 206,
+      "point": 0.206,
+      "upper": 0.23832328835419925
+    },
+    {
+      "source": 1,
+      "target": 2,
+      "confirmed_injections": 1000,
+      "propagated": 299,
+      "point": 0.299,
+      "upper": 0.3349539726783688
+    },
+    {
+      "source": 2,
+      "target": 2,
+      "confirmed_injections": 1000,
+      "propagated": 188,
+      "point": 0.188,
+      "upper": 0.21936605002626575
+    },
+    {
+      "source": 2,
+      "target": 0,
+      "confirmed_injections": 1000,
+      "propagated": 390,
+      "point": 0.39,
+      "upper": 0.4278266860213267
+    }
+  ],
+  "matrix": [
+    [
+      0.197,
+      0.0,
+      0.39
+    ],
+    [
+      0.295,
+      0.206,
+      0.0
+    ],
+    [
+      0.0,
+      0.299,
+      0.188
+    ]
+  ],
+  "upper_matrix": [
+    [
+      0.2288567651971951,
+      0.0,
+      0.4278266860213267
+    ],
+    [
+      0.33083689176326203,
+      0.23832328835419925,
+      0.0
+    ],
+    [
+      0.0,
+      0.3349539726783688,
+      0.21936605002626575
+    ]
+  ],
+  "estimated_radius": 0.5223095278257857,
+  "upper_radius": 0.5908595527455508,
+  "verdict": "decays",
+  "limitation": "Coverage conditional on registered Bernoulli edges and correct structural zeros"
+}

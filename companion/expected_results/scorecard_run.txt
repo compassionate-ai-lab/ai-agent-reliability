@@ -1,0 +1,126 @@
+{
+  "confidence": 0.95,
+  "constituent_bounds": 9,
+  "allocated_alpha": 0.005555555555555556,
+  "rows": [
+    {
+      "id": "ARI-O",
+      "score": 94.1500738603575,
+      "evidence_complete": true,
+      "groups": [
+        {
+          "family": "ARI-O",
+          "x": 960,
+          "n": 1000,
+          "weight": 1,
+          "lower": 0.941500738603575
+        }
+      ],
+      "shared_evidence": []
+    },
+    {
+      "id": "ARI-P m=5",
+      "score": 71.49728258557208,
+      "evidence_complete": true,
+      "groups": [
+        {
+          "family": "ARI-P m=5",
+          "x": 83,
+          "n": 100,
+          "weight": 1,
+          "lower": 0.7149728258557209
+        }
+      ],
+      "shared_evidence": []
+    },
+    {
+      "id": "ARI-R",
+      "score": 85.85102455252198,
+      "evidence_complete": true,
+      "groups": [
+        {
+          "family": "ARI-R",
+          "x": 184,
+          "n": 200,
+          "weight": 1,
+          "lower": 0.8585102455252198
+        }
+      ],
+      "shared_evidence": []
+    },
+    {
+      "id": "ARI-C",
+      "score": 97.5886448380423,
+      "evidence_complete": true,
+      "groups": [
+        {
+          "family": "ARI-C",
+          "x": 299,
+          "n": 300,
+          "weight": 1,
+          "lower": 0.975886448380423
+        }
+      ],
+      "shared_evidence": []
+    },
+    {
+      "id": "ARI-S",
+      "score": 93.06124827800801,
+      "evidence_complete": true,
+      "groups": [
+        {
+          "family": "ARI-S",
+          "x": 290,
+          "n": 300,
+          "weight": 1,
+          "lower": 0.9306124827800801
+        }
+      ],
+      "shared_evidence": []
+    },
+    {
+      "id": "ARI-M",
+      "score": 80.4314136954044,
+      "evidence_complete": true,
+      "groups": [
+        {
+          "family": "ARI-M",
+          "x": 175,
+          "n": 200,
+          "weight": 1,
+          "lower": 0.8043141369540441
+        }
+      ],
+      "shared_evidence": []
+    },
+    {
+      "id": "ARI-G",
+      "score": 66.44385139575462,
+      "evidence_complete": true,
+      "groups": [
+        {
+          "family": "stress-1",
+          "x": 180,
+          "n": 200,
+          "lower": 0.834039321026292
+        },
+        {
+          "family": "stress-2",
+          "x": 160,
+          "n": 200,
+          "lower": 0.7190276131617628
+        },
+        {
+          "family": "stress-3",
+          "x": 150,
+          "n": 200,
+          "lower": 0.6644385139575462
+        }
+      ],
+      "shared_evidence": []
+    }
+  ],
+  "status": "Criteria not met",
+  "criteria_registered": false,
+  "interpretation": "Illustrative counts only; one prohibited post-stop commit blocks release"
+}

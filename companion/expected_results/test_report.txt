@@ -1,0 +1,41 @@
+test_added_failure (test_reliability.BoundTests.test_added_failure) ... ok
+test_all (test_reliability.BoundTests.test_all) ... ok
+test_bad_weights (test_reliability.BoundTests.test_bad_weights) ... ok
+test_economics (test_reliability.BoundTests.test_economics) ... ok
+test_gate (test_reliability.BoundTests.test_gate) ... ok
+test_invalid (test_reliability.BoundTests.test_invalid) ... ok
+test_missing_not_renormalized (test_reliability.BoundTests.test_missing_not_renormalized) ... ok
+test_monotonic_successes (test_reliability.BoundTests.test_monotonic_successes) ... ok
+test_none (test_reliability.BoundTests.test_none) ... ok
+test_reference_96 (test_reliability.BoundTests.test_reference_96) ... ok
+test_repeat (test_reliability.BoundTests.test_repeat) ... ok
+test_upper_all (test_reliability.BoundTests.test_upper_all) ... ok
+test_upper_zero (test_reliability.BoundTests.test_upper_zero) ... ok
+test_zero (test_reliability.BoundTests.test_zero) ... ok
+test_card_gate (test_reliability.ProfileTests.test_card_gate) ... ok
+test_duplicate_claim_rejected (test_reliability.ProfileTests.test_duplicate_claim_rejected) ... ok
+test_no_criteria_cannot_qualify (test_reliability.ProfileTests.test_no_criteria_cannot_qualify) ... ok
+test_unknown_stress_not_dropped (test_reliability.ProfileTests.test_unknown_stress_not_dropped) ... ok
+test_verifier_partition (test_reliability.ProfileTests.test_verifier_partition) ... ok
+test_authority_revision (test_reliability.TransactionTests.test_authority_revision) ... ok
+test_checkpoint_roundtrip (test_reliability.TransactionTests.test_checkpoint_roundtrip) ... ok
+test_checkpoint_tamper (test_reliability.TransactionTests.test_checkpoint_tamper) ... ok
+test_conflicting_workers (test_reliability.TransactionTests.test_conflicting_workers) ... ok
+test_crash_reopen (test_reliability.TransactionTests.test_crash_reopen) ... ok
+test_memory_correction_isolation_delete (test_reliability.TransactionTests.test_memory_correction_isolation_delete) ... ok
+test_normal (test_reliability.TransactionTests.test_normal) ... ok
+test_op_reuse_payload (test_reliability.TransactionTests.test_op_reuse_payload) ... ok
+test_policy_revision (test_reliability.TransactionTests.test_policy_revision) ... ok
+test_raw_timeout_is_uncertain (test_reliability.TransactionTests.test_raw_timeout_is_uncertain) ... ok
+test_receipt_after_revocation_no_new_write (test_reliability.TransactionTests.test_receipt_after_revocation_no_new_write) ... ok
+test_revoked_no_effect (test_reliability.TransactionTests.test_revoked_no_effect) ... ok
+test_schema_rejected (test_reliability.TransactionTests.test_schema_rejected) ... ok
+test_scope (test_reliability.TransactionTests.test_scope) ... ok
+test_timeout_reconciles_once (test_reliability.TransactionTests.test_timeout_reconciles_once) ... ok
+test_types_rejected (test_reliability.TransactionTests.test_types_rejected) ... ok
+test_unknown_scope (test_reliability.TransactionTests.test_unknown_scope) ... ok
+
+----------------------------------------------------------------------
+Ran 36 tests in 0.075s
+
+OK

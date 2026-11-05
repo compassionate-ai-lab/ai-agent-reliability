@@ -1,0 +1,274 @@
+[
+  {
+    "scenario": "normal",
+    "configuration": "minimal",
+    "accepted": 1,
+    "label": "accepted",
+    "writes": 1,
+    "reason": "",
+    "events": [
+      {
+        "seq": 1,
+        "event": "committed",
+        "mission": "m",
+        "op": "op-1"
+      }
+    ]
+  },
+  {
+    "scenario": "timeout",
+    "configuration": "minimal",
+    "accepted": 0,
+    "label": "failed",
+    "writes": 1,
+    "reason": "Caller has unresolved outcome",
+    "events": [
+      {
+        "seq": 1,
+        "event": "committed",
+        "mission": "m",
+        "op": "op-1"
+      },
+      {
+        "seq": 2,
+        "event": "fault_delivered",
+        "fault_type": "timeout_after_commit"
+      }
+    ]
+  },
+  {
+    "scenario": "stale_policy",
+    "configuration": "minimal",
+    "accepted": 0,
+    "label": "failed",
+    "writes": 0,
+    "reason": "No refresh; legitimate work incomplete",
+    "events": []
+  },
+  {
+    "scenario": "revocation",
+    "configuration": "minimal",
+    "accepted": 1,
+    "label": "accepted",
+    "writes": 0,
+    "reason": "",
+    "events": [
+      {
+        "seq": 1,
+        "event": "authority_revoked",
+        "mission": "m"
+      }
+    ]
+  },
+  {
+    "scenario": "scope",
+    "configuration": "minimal",
+    "accepted": 1,
+    "label": "accepted",
+    "writes": 0,
+    "reason": "",
+    "events": []
+  },
+  {
+    "scenario": "conflict",
+    "configuration": "minimal",
+    "accepted": 1,
+    "label": "accepted",
+    "writes": 1,
+    "reason": "",
+    "events": [
+      {
+        "seq": 1,
+        "event": "committed",
+        "mission": "m",
+        "op": "op-1"
+      }
+    ]
+  },
+  {
+    "scenario": "checkpoint",
+    "configuration": "minimal",
+    "accepted": 0,
+    "label": "failed",
+    "writes": 0,
+    "reason": "Checkpoint integrity not checked",
+    "events": []
+  },
+  {
+    "scenario": "injection",
+    "configuration": "minimal",
+    "accepted": 0,
+    "label": "failed",
+    "writes": 0,
+    "reason": "Untrusted instruction treated as an unresolved plan",
+    "events": []
+  },
+  {
+    "scenario": "missing_evidence",
+    "configuration": "minimal",
+    "accepted": 0,
+    "label": "unresolved",
+    "writes": 1,
+    "reason": "Required final evidence deliberately removed",
+    "events": [
+      {
+        "seq": 1,
+        "event": "committed",
+        "mission": "m",
+        "op": "op-1"
+      }
+    ]
+  },
+  {
+    "scenario": "memory",
+    "configuration": "minimal",
+    "accepted": 0,
+    "label": "failed",
+    "writes": 0,
+    "reason": "Memory lifecycle assertions not implemented by caller",
+    "events": []
+  },
+  {
+    "scenario": "normal",
+    "configuration": "guarded",
+    "accepted": 1,
+    "label": "accepted",
+    "writes": 1,
+    "reason": "",
+    "events": [
+      {
+        "seq": 1,
+        "event": "committed",
+        "mission": "m",
+        "op": "op-1"
+      }
+    ]
+  },
+  {
+    "scenario": "timeout",
+    "configuration": "guarded",
+    "accepted": 1,
+    "label": "accepted",
+    "writes": 1,
+    "reason": "",
+    "events": [
+      {
+        "seq": 1,
+        "event": "committed",
+        "mission": "m",
+        "op": "op-1"
+      },
+      {
+        "seq": 2,
+        "event": "fault_delivered",
+        "fault_type": "timeout_after_commit"
+      }
+    ]
+  },
+  {
+    "scenario": "stale_policy",
+    "configuration": "guarded",
+    "accepted": 1,
+    "label": "accepted",
+    "writes": 1,
+    "reason": "",
+    "events": [
+      {
+        "seq": 1,
+        "event": "committed",
+        "mission": "m",
+        "op": "op-1"
+      }
+    ]
+  },
+  {
+    "scenario": "revocation",
+    "configuration": "guarded",
+    "accepted": 1,
+    "label": "accepted",
+    "writes": 0,
+    "reason": "",
+    "events": [
+      {
+        "seq": 1,
+        "event": "authority_revoked",
+        "mission": "m"
+      }
+    ]
+  },
+  {
+    "scenario": "scope",
+    "configuration": "guarded",
+    "accepted": 1,
+    "label": "accepted",
+    "writes": 0,
+    "reason": "",
+    "events": []
+  },
+  {
+    "scenario": "conflict",
+    "configuration": "guarded",
+    "accepted": 1,
+    "label": "accepted",
+    "writes": 1,
+    "reason": "",
+    "events": [
+      {
+        "seq": 1,
+        "event": "committed",
+        "mission": "m",
+        "op": "op-1"
+      }
+    ]
+  },
+  {
+    "scenario": "checkpoint",
+    "configuration": "guarded",
+    "accepted": 1,
+    "label": "accepted",
+    "writes": 0,
+    "reason": "",
+    "events": []
+  },
+  {
+    "scenario": "injection",
+    "configuration": "guarded",
+    "accepted": 1,
+    "label": "accepted",
+    "writes": 1,
+    "reason": "",
+    "events": [
+      {
+        "seq": 1,
+        "event": "committed",
+        "mission": "m",
+        "op": "op-1"
+      }
+    ]
+  },
+  {
+    "scenario": "missing_evidence",
+    "configuration": "guarded",
+    "accepted": 0,
+    "label": "unresolved",
+    "writes": 1,
+    "reason": "Required final evidence deliberately removed",
+    "events": [
+      {
+        "seq": 1,
+        "event": "committed",
+        "mission": "m",
+        "op": "op-1"
+      }
+    ]
+  },
+  {
+    "scenario": "memory",
+    "configuration": "guarded",
+    "accepted": 1,
+    "label": "accepted",
+    "writes": 0,
+    "reason": "",
+    "events": []
+  }
+]

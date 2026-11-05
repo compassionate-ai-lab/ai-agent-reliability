@@ -1,0 +1,62 @@
+[
+  {
+    "domain": "service",
+    "accepted": true,
+    "failed_productive_case": {
+      "stale_proposal_rejected": true,
+      "mission_completed": false
+    },
+    "unresolved": {
+      "required_final_evidence_missing": true
+    }
+  },
+  {
+    "domain": "coding",
+    "baseline": {
+      "label": "failed",
+      "checks": [
+        false,
+        true,
+        false,
+        true
+      ]
+    },
+    "candidate": {
+      "label": "accepted",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    "unresolved": {
+      "label": "unresolved",
+      "reason": "Unknown candidate not executed"
+    }
+  },
+  {
+    "domain": "research",
+    "claims": [
+      {
+        "name": "eligible_limit",
+        "value": "100 units",
+        "source": "policy-2",
+        "label": "accepted"
+      },
+      {
+        "name": "guaranteed_profit",
+        "value": "yes",
+        "source": "policy-2",
+        "label": "failed"
+      },
+      {
+        "name": "new_claim",
+        "value": "unknown",
+        "source": "missing",
+        "label": "unresolved"
+      }
+    ],
+    "limitation": "Exact fixture checks do not establish natural-language entailment"
+  }
+]

@@ -1,0 +1,65 @@
+{
+  "provenance": "Analytical calculations on illustrative inputs",
+  "lower_96_100": 0.9108037498411206,
+  "lower_960_1000": 0.9482465986478408,
+  "weighted_two_strata": {
+    "qualified_evidence": true,
+    "lower_floor": 0.8786684013041147,
+    "bounds": [
+      0.9154514462923997,
+      0.7928412963314497
+    ]
+  },
+  "zero_event_upper_1000": 0.0029912495450953314,
+  "zero_event_sample_below_001": 2995,
+  "eight_stage_independent": 0.8507630225817855,
+  "common_cause_workers": 0.91908,
+  "two_verifier_mixture_miss": 0.12000000000000001,
+  "verifier": {
+    "wrong_plan": 0.05009999999999999,
+    "wrong_state": 0.06408799999999999,
+    "correct_accepted": 0.9265528799999999,
+    "correct_rejected": 0.00935912,
+    "wrong_detected": 0.038452799999999995,
+    "wrong_accepted": 0.025635199999999997
+  },
+  "matrix": [
+    [
+      0.2,
+      0,
+      0.4
+    ],
+    [
+      0.3,
+      0.2,
+      0
+    ],
+    [
+      0,
+      0.3,
+      0.2
+    ]
+  ],
+  "radius": 0.5301927248894627,
+  "double_radius": 1.0603854497789253,
+  "stationary": [
+    0.022689075630242757,
+    0.021008403361336046,
+    0.02037815126049649
+  ],
+  "markov_three_steps": 0.8927999999999999,
+  "markov_eventual": 0.8999999999999999,
+  "latent_conditional": 0.07734806629834254,
+  "latent_all_missions": 0.07,
+  "queue": {
+    "lambda_per_hour": 10,
+    "mu_per_hour": 12,
+    "utilization": 0.8333333333333334,
+    "mean_system_minutes": 30.0,
+    "mean_queue_minutes": 25.0
+  },
+  "loss": {
+    "expected": 0.65,
+    "cvar99": 55.0
+  }
+}

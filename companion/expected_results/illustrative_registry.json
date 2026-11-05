@@ -1,0 +1,103 @@
+{
+  "alpha": 0.05,
+  "claims": [
+    {
+      "id": "ARI-O",
+      "mode": "weighted",
+      "groups": [
+        {
+          "family": "ARI-O",
+          "x": 960,
+          "n": 1000,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "id": "ARI-P m=5",
+      "mode": "weighted",
+      "groups": [
+        {
+          "family": "ARI-P m=5",
+          "x": 83,
+          "n": 100,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "id": "ARI-R",
+      "mode": "weighted",
+      "groups": [
+        {
+          "family": "ARI-R",
+          "x": 184,
+          "n": 200,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "id": "ARI-C",
+      "mode": "weighted",
+      "groups": [
+        {
+          "family": "ARI-C",
+          "x": 299,
+          "n": 300,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "id": "ARI-S",
+      "mode": "weighted",
+      "groups": [
+        {
+          "family": "ARI-S",
+          "x": 290,
+          "n": 300,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "id": "ARI-M",
+      "mode": "weighted",
+      "groups": [
+        {
+          "family": "ARI-M",
+          "x": 175,
+          "n": 200,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "id": "ARI-G",
+      "mode": "minimum",
+      "groups": [
+        {
+          "family": "stress-1",
+          "x": 180,
+          "n": 200
+        },
+        {
+          "family": "stress-2",
+          "x": 160,
+          "n": 200
+        },
+        {
+          "family": "stress-3",
+          "x": 150,
+          "n": 200
+        }
+      ]
+    }
+  ],
+  "required_evidence_complete": true,
+  "critical_events": 1,
+  "thresholds": {},
+  "criteria_approved": false,
+  "interpretation": "Illustrative counts only; one prohibited post-stop commit blocks release"
+}

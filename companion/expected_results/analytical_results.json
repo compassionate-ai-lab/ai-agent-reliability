@@ -1,0 +1,183 @@
+{
+  "provenance": "Analytical calculations on illustrative inputs",
+  "lower_96_100": 0.9108037498411206,
+  "lower_960_1000": 0.9482465986478408,
+  "weighted_two_strata": {
+    "qualified_evidence": true,
+    "lower_floor": 0.8786684013041147,
+    "bounds": [
+      0.9154514462923997,
+      0.7928412963314497
+    ]
+  },
+  "zero_event_upper_1000": 0.0029912495450953314,
+  "zero_event_sample_below_001": 2995,
+  "eight_stage_independent": 0.8507630225817855,
+  "common_cause_workers": 0.91908,
+  "two_verifier_mixture_miss": 0.12000000000000001,
+  "verifier": {
+    "wrong_plan": 0.05009999999999999,
+    "wrong_state": 0.06408799999999999,
+    "correct_accepted": 0.9265528799999999,
+    "correct_rejected": 0.00935912,
+    "wrong_detected": 0.038452799999999995,
+    "wrong_accepted": 0.025635199999999997
+  },
+  "matrix": [
+    [
+      0.2,
+      0,
+      0.4
+    ],
+    [
+      0.3,
+      0.2,
+      0
+    ],
+    [
+      0,
+      0.3,
+      0.2
+    ]
+  ],
+  "radius": 0.5301927248894456,
+  "double_radius": 1.060385449778757,
+  "stationary": [
+    0.022689075630242757,
+    0.021008403361336046,
+    0.02037815126049649
+  ],
+  "markov_three_steps": 0.8927999999999999,
+  "markov_eventual": 0.8999999999999999,
+  "latent_conditional": 0.07734806629834254,
+  "latent_all_missions": 0.07,
+  "core_card": [
+    {
+      "claim": "ARI-O",
+      "x": 960,
+      "n": 1000,
+      "lower": 0.941500738603575
+    },
+    {
+      "claim": "ARI-P (m=5)",
+      "x": 83,
+      "n": 100,
+      "lower": 0.7149728258557209
+    },
+    {
+      "claim": "ARI-R",
+      "x": 184,
+      "n": 200,
+      "lower": 0.8585102455252198
+    },
+    {
+      "claim": "ARI-C",
+      "x": 299,
+      "n": 300,
+      "lower": 0.975886448380423
+    },
+    {
+      "claim": "ARI-S",
+      "x": 290,
+      "n": 300,
+      "lower": 0.9306124827800801
+    },
+    {
+      "claim": "ARI-M",
+      "x": 175,
+      "n": 200,
+      "lower": 0.8043141369540441
+    },
+    {
+      "claim": "Stress 1",
+      "x": 180,
+      "n": 200,
+      "lower": 0.834039321026292
+    },
+    {
+      "claim": "Stress 2",
+      "x": 160,
+      "n": 200,
+      "lower": 0.7190276131617628
+    },
+    {
+      "claim": "Stress 3",
+      "x": 150,
+      "n": 200,
+      "lower": 0.6644385139575462
+    }
+  ],
+  "architecture_card": [
+    {
+      "claim": "Authority layer",
+      "x": 198,
+      "n": 200,
+      "lower": 0.9544659858318445
+    },
+    {
+      "claim": "Context-memory layer",
+      "x": 190,
+      "n": 200,
+      "lower": 0.8960378442460191
+    },
+    {
+      "claim": "Planning-coordination layer",
+      "x": 194,
+      "n": 200,
+      "lower": 0.9235753849209658
+    },
+    {
+      "claim": "Tools-verification layer",
+      "x": 196,
+      "n": 200,
+      "lower": 0.9383694452838112
+    },
+    {
+      "claim": "Horizontal",
+      "x": 185,
+      "n": 200,
+      "lower": 0.8637962328174864
+    },
+    {
+      "claim": "Vertical",
+      "x": 192,
+      "n": 200,
+      "lower": 0.909545386650561
+    },
+    {
+      "claim": "Cross",
+      "x": 178,
+      "n": 200,
+      "lower": 0.8209999567429578
+    },
+    {
+      "claim": "ARI-J(A)",
+      "x": 174,
+      "n": 200,
+      "lower": 0.7973716057471731
+    },
+    {
+      "claim": "ARI-L(B)",
+      "x": 168,
+      "n": 200,
+      "lower": 0.7627583535498825
+    },
+    {
+      "claim": "ARI-J(B)",
+      "x": 167,
+      "n": 200,
+      "lower": 0.7570719164722
+    }
+  ],
+  "queue": {
+    "lambda_per_hour": 10,
+    "mu_per_hour": 12,
+    "utilization": 0.8333333333333334,
+    "mean_system_minutes": 30.0,
+    "mean_queue_minutes": 25.0
+  },
+  "loss": {
+    "expected": 0.65,
+    "cvar99": 55.0
+  }
+}
