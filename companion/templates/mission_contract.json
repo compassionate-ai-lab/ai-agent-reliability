@@ -1,0 +1,15 @@
+{
+  "protocol_version": "1.0",
+  "mission_class": "synthetic-address-correction",
+  "eligible_population": "fictional active orders in one tenant",
+  "required_outcome": "requested address stored in intended record exactly once",
+  "mandatory_invariants": ["current authority", "current applicable policy", "tenant isolation", "unique intended operation"],
+  "evidence": ["durable operation receipt", "authoritative final-state query"],
+  "assistance_policy": "all interventions recorded",
+  "unresolved_policy": "zero verified successes at adjudication deadline",
+  "system_identity": "record code, model if used, prompt, tool, memory, policy, evaluator, and environment versions",
+  "deployment_owner": null,
+  "deadline_seconds": null,
+  "resource_budget": null,
+  "note": "Null fields require application-owner decisions before a live release; this is a reusable template"
+}
