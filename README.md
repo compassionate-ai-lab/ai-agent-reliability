@@ -21,7 +21,7 @@ python capstones.py
 ```
 
 Expected results:
-- 78 passing unit tests (36 core tests in `test_reliability.py`, 42 for `models.py` in `test_models.py`);
+- 80 passing unit tests (36 core tests in `test_reliability.py`, 44 for `models.py` in `test_models.py`);
 - fixture counts minimal 4/10 and guarded 9/10;
 - an illustrative scorecard blocked by a critical event;
 - the coding baseline fails, and the candidate is accepted;

@@ -5,7 +5,7 @@ Book: *AI Agent Reliability Engineering: Theory and Practices*, Dr. Sri Amit Ray
 Release: version 1.0.0, GitHub tag `v1.0.0`. This is the release printed in the book. A later corrected release will carry a new version number, and this one stays available unchanged.
 
 ## Source identity
-- Built from the V7 development package (`AI_Agent_Reliability_Engineering_V7_Companion.zip`, 70 tests) plus the final correction pass of 5 November 2026 (book production V8).
+- Built from the V7 development package (`AI_Agent_Reliability_Engineering_V7_Companion.zip`, 70 tests) plus the final correction passes of 5 November 2026 (book production V8, including the V8 review).
 - The modules in this archive are the ones printed as the book's numbered listings, regions `# [book:name]`.
 
 ## Corrected in 1.0.0
@@ -16,14 +16,28 @@ Release: version 1.0.0, GitHub tag `v1.0.0`. This is the release printed in the 
   - Inputs are validated: the matrix must be square, nonempty, finite and nonnegative, and edge counts must be valid.
   - `calculations.radius` and `architecture_experiment.py` now use the same single implementation. The propagation campaign also records a verdict.
 - Teaching values are unchanged: 0.5302, 1.0604, 0.5223 (estimate), 0.5909 (upper enclosure), 1.1225 (cycle).
+- **False completion (Chapter 21, Listing 21.1).** The event contract is now explicit. `models.claim_audit` reports each completion claim twice:
+  - `at_report`: did the latest verification recorded before the claim pass? The ordinary sequence of verify and then report success is supported.
+  - `final`: did the latest verification anywhere in the log pass? A later independent adjudication can confirm or overturn a claim.
+
+  `false_completion` returns the claims whose final verification is missing or failed. Before this change, a valid verify-then-report sequence was wrongly flagged.
+- **Task transitions (Chapter 9, Listing 9.1).** `advance` is documented as a pure transition validator. Concurrency protection comes from the atomic compare-and-update in `flexiagent.commit`.
+- **Release status (Chapter 6, Appendix B).** One rule, applied in order:
+  1. A confirmed hard-gate violation gives *criteria not met*.
+  2. Otherwise incomplete evidence gives *insufficient evidence*, even when a threshold also fails.
+  3. With complete evidence, the thresholds decide.
+
+  `scorecard.build` now also lists every reason.
+- **Housekeeping.** No Python caches are included. `expected_results/test_report.txt` is the complete verbose run of this release.
 
 ## Tests and outputs
-- 78 unit tests: 36 in `test_reliability.py` and 42 in `test_models.py`. All pass.
+- 80 unit tests: 36 in `test_reliability.py` and 44 in `test_models.py`. All pass.
 - New radius tests cover:
   - the two review counterexamples;
   - zero and diagonal matrices, asymmetric cycles, reducible and nearly critical matrices;
   - unknown edges and invalid inputs;
   - a cross-check against NumPy's eigenvalue solver, skipped when NumPy is absent.
+- New claim-audit tests cover a verification recorded before the claim, a claim confirmed only by a later check, a claim overturned by a later failing adjudication, and a claim never verified.
 - All five documented scripts run, and the 3 notebook code cells execute. The reference outputs are in `companion/expected_results/`.
 
 ## Inventory
