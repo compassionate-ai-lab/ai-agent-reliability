@@ -99,6 +99,9 @@ class BoundTests(unittest.TestCase):
         self.assertEqual(gate(True,True,1),'Criteria not met')
         self.assertEqual(gate(False,True,0),'Insufficient evidence')
         self.assertEqual(gate(False,False,1),'Criteria not met')
+        self.assertEqual(gate(False,False,0),'Insufficient evidence')
+        self.assertEqual(gate(True,False,0),'Criteria not met')
+        self.assertEqual(gate(True,True,0),'Qualified within the stated envelope')
     def test_repeat(self): self.assertEqual(repeat_block([1,1,0]),0)
     def test_economics(self):
         self.assertIsNone(cpao([1],0)); self.assertEqual(cpao([1,2],2),1.5)
@@ -109,6 +112,8 @@ class ProfileTests(unittest.TestCase):
         r=build(illustrative_registry())
         self.assertEqual(r['constituent_bounds'],9)
         self.assertEqual(r['status'],'Criteria not met')
+        self.assertIn('confirmed hard-gate violation',r['reasons'])
+        self.assertIn('no approved release criteria',r['reasons'])
     def test_no_criteria_cannot_qualify(self):
         from scorecard import build,illustrative_registry
         r=illustrative_registry();r['critical_events']=0

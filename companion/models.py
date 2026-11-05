@@ -195,7 +195,8 @@ ALLOWED = {
 
 
 def advance(state, target, expected_revision, current_revision):
-    """Only listed transitions, and only from the expected revision."""
+    """Transition validator (pure): a listed move from the expected
+    revision. Persist it with an atomic compare-and-update."""
     if expected_revision != current_revision:
         raise ValueError("stale task revision")
     if target not in ALLOWED.get(state, set()):
@@ -527,22 +528,41 @@ def manifest(files):
 class MissionEvent:
     mission: str
     seq: int
-    kind: str                   # "tool_call", "commit", "verify_state", ...
+    kind: str                     # "commit", "verify_state", ...
     agent: str
     layer: str
     versions: dict = field(default_factory=dict)
-    parent: int | None = None   # seq of the causing event
-    operation: str | None = None  # operation identity the event concerns
-    passed: bool | None = None    # outcome of a verification event
+    parent: int | None = None     # seq of the causing event
+    operation: str | None = None  # operation checked or claimed
+    passed: bool | None = None    # result of a verification
+
+
+def claim_audit(events):
+    """Each completion claim against verify_state events of the
+    same mission and operation. at_report: the latest check before
+    the claim passed. final: the latest check in the whole log
+    passed; None if the operation was never checked."""
+    out = []
+    for c in events:
+        if c.kind != "claim_complete":
+            continue
+        checks = sorted((v for v in events
+                         if v.kind == "verify_state"
+                         and v.mission == c.mission
+                         and v.operation == c.operation),
+                        key=lambda v: v.seq)
+        before = [v for v in checks if v.seq < c.seq]
+        last = before[-1].passed if before else None
+        final = checks[-1].passed is True if checks else None
+        out.append({"claim": c, "at_report": last is True,
+                    "final": final})
+    return out
 
 
 def false_completion(events):
-    """Completion claims with no later passing verification of the
-    same mission and operation. Returns the unsupported claims."""
-    verified = [e for e in events if e.kind == "verify_state" and e.passed]
-    return [c for c in events if c.kind == "claim_complete" and not any(
-        v.mission == c.mission and v.operation == c.operation and v.seq > c.seq
-        for v in verified)]
+    """Claims whose final verification is missing or failed."""
+    return [a["claim"] for a in claim_audit(events)
+            if a["final"] is not True]
 # [/book:event]
 
 

@@ -38,8 +38,13 @@ def build(registry):
     # A demonstration with no approved criteria cannot qualify by an empty conjunction.
     criteria_registered=bool(floors) and registry.get('criteria_approved',False)
     status=gate(evidence and criteria_registered,thresholds_pass,registry['critical_events'])
+    reasons=[]    # every reason stays listed, whichever one sets the status
+    if registry['critical_events']:reasons.append('confirmed hard-gate violation')
+    if not evidence:reasons.append('required evidence incomplete')
+    if not criteria_registered:reasons.append('no approved release criteria')
+    if not thresholds_pass:reasons.append('threshold or floor not met on the available evidence')
     return dict(confidence=1-alpha,constituent_bounds=k,allocated_alpha=a,rows=rows,
-                status=status,criteria_registered=criteria_registered,
+                status=status,reasons=reasons,criteria_registered=criteria_registered,
                 interpretation=registry['interpretation'])
 
 def illustrative_registry():

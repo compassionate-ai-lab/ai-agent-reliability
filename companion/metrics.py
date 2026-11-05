@@ -52,6 +52,10 @@ def weighted(groups, alpha=.05):
             'bounds':bounds}
 
 def gate(evidence_complete, thresholds_pass, critical_events):
+    """1. A confirmed hard-gate violation: criteria not met.
+    2. Otherwise incomplete evidence: insufficient evidence, even if a
+       threshold also fails (a bound with missing evidence is not a
+       confirmed failure). 3. Complete evidence: thresholds decide."""
     if critical_events: return 'Criteria not met'
     if not evidence_complete: return 'Insufficient evidence'
     return 'Qualified within the stated envelope' if thresholds_pass else 'Criteria not met'

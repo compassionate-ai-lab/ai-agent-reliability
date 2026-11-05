@@ -215,6 +215,28 @@ class ModelTests(unittest.TestCase):
         ok = E("m", 7, "verify_state", "V", "verify", operation="op-1", passed=True)
         self.assertEqual(m.false_completion([claim, second, ok]), [second])
 
+    def test_false_completion_accepts_preceding_verification(self):
+        E = m.MissionEvent
+        ev = [E("m", 1, "commit", "C", "tools", operation="op-1"),
+              E("m", 2, "verify_state", "V", "verify", operation="op-1", passed=True),
+              E("m", 3, "claim_complete", "C", "verify", operation="op-1")]
+        self.assertEqual(m.false_completion(ev), [])
+        a = m.claim_audit(ev)[0]
+        self.assertTrue(a["at_report"]); self.assertTrue(a["final"])
+
+    def test_claim_audit_separates_report_time_and_adjudication(self):
+        E = m.MissionEvent
+        claim = E("m", 2, "claim_complete", "C", "verify", operation="op-1")
+        late = E("m", 3, "verify_state", "V", "verify", operation="op-1", passed=True)
+        a = m.claim_audit([claim, late])[0]
+        self.assertFalse(a["at_report"]); self.assertTrue(a["final"])
+        early = E("m", 1, "verify_state", "V", "verify", operation="op-1", passed=True)
+        overturned = E("m", 4, "verify_state", "A", "verify", operation="op-1", passed=False)
+        a = m.claim_audit([early, claim, overturned])[0]
+        self.assertTrue(a["at_report"]); self.assertFalse(a["final"])
+        self.assertEqual(m.false_completion([early, claim, overturned]), [claim])
+        self.assertIsNone(m.claim_audit([claim])[0]["final"])
+
     def test_coverage_risk_unknown_and_lengths(self):
         cov, risk = m.coverage_risk([.2, .3], [1, 0], .9)
         self.assertEqual(cov, 0.0); self.assertIsNone(risk)
