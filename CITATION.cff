@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the book."
+title: "AI Agent Reliability Engineering: companion laboratory"
+version: "1.0.0"
+date-released: 2026-11-05
+license: MIT
+authors:
+  - family-names: Ray
+    given-names: Sri Amit
+repository-code: "https://github.com/compassionate-ai-lab/ai-agent-reliability"
+url: "https://sriamitray.com/books/ai-agent-reliability/"
+keywords:
+  - AI agents
+  - reliability engineering
+  - agentic AI
+  - site reliability engineering
+  - evaluation
+  - compassionate AI
+preferred-citation:
+  type: book
+  title: "AI Agent Reliability Engineering: Theory and Practices"
+  authors:
+    - family-names: Ray
+      given-names: Sri Amit
+  publisher:
+    name: "Compassionate AI Lab"
+  year: 2026
+  edition: "First edition"
+  isbn: "978-81-69641-40-1"
