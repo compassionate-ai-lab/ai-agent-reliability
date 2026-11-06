@@ -85,7 +85,8 @@
       0.21936605002626575
     ]
   ],
-  "estimated_radius": 0.5223095278258326,
-  "upper_radius": 0.5908595527452698,
+  "estimated_radius": 0.5223095278257857,
+  "upper_radius": 0.5908595527455508,
+  "verdict": "decays",
   "limitation": "Coverage conditional on registered Bernoulli edges and correct structural zeros"
 }

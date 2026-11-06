@@ -1,3 +1,5 @@
+python -m unittest -v test_reliability test_models
+
 test_added_failure (test_reliability.BoundTests.test_added_failure) ... ok
 test_all (test_reliability.BoundTests.test_all) ... ok
 test_bad_weights (test_reliability.BoundTests.test_bad_weights) ... ok
@@ -34,8 +36,52 @@ test_scope (test_reliability.TransactionTests.test_scope) ... ok
 test_timeout_reconciles_once (test_reliability.TransactionTests.test_timeout_reconciles_once) ... ok
 test_types_rejected (test_reliability.TransactionTests.test_types_rejected) ... ok
 test_unknown_scope (test_reliability.TransactionTests.test_unknown_scope) ... ok
+test_affected_missions (test_models.ModelTests.test_affected_missions) ... ok
+test_budget_consumed (test_models.ModelTests.test_budget_consumed) ... ok
+test_canary_queue (test_models.ModelTests.test_canary_queue) ... ok
+test_claim_audit_separates_report_time_and_adjudication (test_models.ModelTests.test_claim_audit_separates_report_time_and_adjudication) ... ok
+test_coverage_risk_unknown_and_lengths (test_models.ModelTests.test_coverage_risk_unknown_and_lengths) ... ok
+test_duplicates (test_models.ModelTests.test_duplicates) ... ok
+test_envelope_and_scope (test_models.ModelTests.test_envelope_and_scope) ... ok
+test_envelope_membership (test_models.ModelTests.test_envelope_membership) ... ok
+test_evaluator (test_models.ModelTests.test_evaluator) ... ok
+test_false_completion (test_models.ModelTests.test_false_completion) ... ok
+test_false_completion_accepts_preceding_verification (test_models.ModelTests.test_false_completion_accepts_preceding_verification) ... ok
+test_false_completion_needs_same_mission_operation_and_pass (test_models.ModelTests.test_false_completion_needs_same_mission_operation_and_pass) ... ok
+test_horizon_and_markov (test_models.ModelTests.test_horizon_and_markov) ... ok
+test_incident_controls (test_models.ModelTests.test_incident_controls) ... ok
+test_joint_and_redundancy (test_models.ModelTests.test_joint_and_redundancy) ... ok
+test_labour_margin_and_break_even (test_models.ModelTests.test_labour_margin_and_break_even) ... ok
+test_manifest_changes_with_content (test_models.ModelTests.test_manifest_changes_with_content) ... ok
+test_mcnemar (test_models.ModelTests.test_mcnemar) ... ok
+test_min_budget (test_models.ModelTests.test_min_budget) ... ok
+test_radius_counterexample_is_not_below_one (test_models.ModelTests.test_radius_counterexample_is_not_below_one) ... ok
+test_radius_fix_on_cycle (test_models.ModelTests.test_radius_fix_on_cycle) ... ok
+test_radius_matches_independent_eigensolver (test_models.ModelTests.test_radius_matches_independent_eigensolver) ... ok
+test_radius_nearly_critical (test_models.ModelTests.test_radius_nearly_critical) ... ok
+test_radius_rejects_invalid_input (test_models.ModelTests.test_radius_rejects_invalid_input) ... ok
+test_radius_sensitivity_ranking (test_models.ModelTests.test_radius_sensitivity_ranking) ... ok
+test_radius_special_matrices (test_models.ModelTests.test_radius_special_matrices) ... ok
+test_radius_teaching_values_retained (test_models.ModelTests.test_radius_teaching_values_retained) ... ok
+test_radius_unknown_edges_stay_unknown (test_models.ModelTests.test_radius_unknown_edges_stay_unknown) ... ok
+test_radius_upper_fixture_does_not_certify_decay (test_models.ModelTests.test_radius_upper_fixture_does_not_certify_decay) ... ok
+test_radius_upper_is_conservative (test_models.ModelTests.test_radius_upper_is_conservative) ... ok
+test_reconstructed_rate (test_models.ModelTests.test_reconstructed_rate) ... ok
+test_reproduction_gap_symmetry_and_monotone (test_models.ModelTests.test_reproduction_gap_symmetry_and_monotone) ... ok
+test_sample_size (test_models.ModelTests.test_sample_size) ... ok
+test_sample_size_sawtooth_and_stable (test_models.ModelTests.test_sample_size_sawtooth_and_stable) ... ok
+test_slo_and_mix (test_models.ModelTests.test_slo_and_mix) ... ok
+test_sojourn_exceeds (test_models.ModelTests.test_sojourn_exceeds) ... ok
+test_stall (test_models.ModelTests.test_stall) ... ok
+test_subgroup_floor (test_models.ModelTests.test_subgroup_floor) ... ok
+test_tail (test_models.ModelTests.test_tail) ... ok
+test_transitions (test_models.ModelTests.test_transitions) ... ok
+test_two_step_dependence_bounds (test_models.ModelTests.test_two_step_dependence_bounds) ... ok
+test_two_step_feasible_correlation (test_models.ModelTests.test_two_step_feasible_correlation) ... ok
+test_two_step_rejects_impossible_correlation (test_models.ModelTests.test_two_step_rejects_impossible_correlation) ... ok
+test_value_and_debt (test_models.ModelTests.test_value_and_debt) ... ok
 
 ----------------------------------------------------------------------
-Ran 36 tests in 0.075s
+Ran 80 tests
 
 OK

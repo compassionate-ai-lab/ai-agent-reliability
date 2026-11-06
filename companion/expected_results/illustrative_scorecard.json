@@ -121,6 +121,10 @@
     }
   ],
   "status": "Criteria not met",
+  "reasons": [
+    "confirmed hard-gate violation",
+    "no approved release criteria"
+  ],
   "criteria_registered": false,
   "interpretation": "Illustrative counts only; one prohibited post-stop commit blocks release"
 }
