@@ -1,0 +1,28 @@
+name: tests
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    defaults:
+      run:
+        working-directory: companion
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Unit tests
+        run: python -m unittest -v test_reliability test_models
+      - name: Documented scripts
+        run: |
+          python run_experiments.py
+          python calculations.py
+          python scorecard.py
+          python architecture_experiment.py
+          python capstones.py
+      - name: Reproduces the reference outputs
+        run: |
+          for f in expected_results/*.json; do cmp "$f" "results/$(basename "$f")"; done
