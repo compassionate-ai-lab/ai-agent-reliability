@@ -9,7 +9,7 @@ Release: version 1.0.0, GitHub tag `v1.0.0`. This is the release printed in the 
 - The modules in this archive are the ones printed as the book's numbered listings, regions `# [book:name]`.
 
 ## Corrected in 1.0.0
-- **Spectral radius (Chapter 16, Listing 16.1).** Before 1.0.0, the routine returned the last normalisation factor after 4,000 power steps. That is an estimate, not a bound. It returned about 0.9995 for a matrix whose radius is exactly 1, and `radius_upper` returned about 0.99937 for a bound matrix with radius 1, which wrongly suggested decay. The new routine works as follows:
+- **Spectral radius (Chapter 16, Listing 16.1).** Before 1.0.0, the routine returned the last normalization factor after 4,000 power steps. That is an estimate, not a bound. It returned about 0.9995 for a matrix whose radius is exactly 1, and `radius_upper` returned about 0.99937 for a bound matrix with radius 1, which wrongly suggested decay. The new routine works as follows:
   - `models.radius_bracket` gives a guaranteed enclosure. It splits reducible matrices into strongly connected blocks and runs Collatz-Wielandt ratios on A + I. It has a stated tolerance and iteration limit, and an allowance for rounding.
   - `decay_verdict` returns `decays`, `grows` or `inconclusive`. `spectral_radius` is the midpoint estimate.
   - `radius_upper` now returns the upper enclosure. `upper_matrix` keeps unmeasured edges as `UNKNOWN`, bounded by 1. Only declared structural zeros (`None`) are 0.

@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this software, please cite the book."
 title: "AI Agent Reliability Engineering: companion laboratory"
 version: "1.0.0"
-date-released: 2026-11-05
+date-released: 2026-11-06
 license: MIT
 authors:
   - family-names: Ray
