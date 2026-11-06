@@ -45,7 +45,7 @@ The deterministic fixture counts describe this finite teaching suite; they are n
 | `templates/` | Reusable mission contract, release record and incident record |
 | `AI_Agent_Reliability_Engineering_Forms_Workbook_v1.0.0.docx` | Editable Forms Workbook (see its own copyright statement) |
 | `MANIFEST.sha256` | SHA-256 of every file in this package |
-| `VERSION`, `RELEASE_NOTES.md`, `LICENSE` | Release record and licence |
+| `VERSION`, `RELEASE_NOTES.md`, `LICENSE` | Release record and license |
 
 ## Spectral radius (corrected in 1.0.0)
 

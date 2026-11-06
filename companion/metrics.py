@@ -38,7 +38,8 @@ def upper(x, n, alpha=.05):
 
 # [book:weighted]
 def weighted(groups, alpha=.05):
-    """Each group: {x,n,weight}; equal alpha allocation, no dropped groups."""
+    """Each group: {x,n,weight}. Equal alpha allocation; no group is
+    dropped."""
     if not groups: raise ValueError("Empty registry")
     weights = [g['weight'] for g in groups]
     if any(w < 0 or not math.isfinite(w) for w in weights):
@@ -52,13 +53,14 @@ def weighted(groups, alpha=.05):
             'bounds':bounds}
 
 def gate(evidence_complete, thresholds_pass, critical_events):
-    """1. A confirmed hard-gate violation: criteria not met.
-    2. Otherwise incomplete evidence: insufficient evidence, even if a
-       threshold also fails (a bound with missing evidence is not a
-       confirmed failure). 3. Complete evidence: thresholds decide."""
+    """Status in a fixed order: (1) a confirmed hard-gate violation;
+    (2) incomplete evidence, even if a threshold also fails, since a
+    bound with missing evidence is not a confirmed failure;
+    (3) with complete evidence, the thresholds decide."""
     if critical_events: return 'Criteria not met'
     if not evidence_complete: return 'Insufficient evidence'
-    return 'Qualified within the stated envelope' if thresholds_pass else 'Criteria not met'
+    if thresholds_pass: return 'Qualified within the stated envelope'
+    return 'Criteria not met'
 
 # [/book:weighted]
 

@@ -98,8 +98,9 @@ def cpao_review(attempts, attempt_cost, review_share, review_cost,
 # ------------------------------------------------------------- Ch 5
 # [book:sample_size]
 def qualifies(rate, target, n, alpha=0.05):
-    """Does the exact lower bound at x = round(rate * n) reach the target?
-    L >= target exactly when P(X >= x | p = target) <= alpha."""
+    """Does the exact lower bound at x = round(rate * n) reach the
+    target? L >= target exactly when
+    P(X >= x | p = target) <= alpha."""
     x = round(rate * n)
     if x == 0:
         return False
@@ -116,8 +117,10 @@ def required_n(rate, target, alpha=0.05, n_max=20000, stable=False):
     if rate <= target:
         return None
     for n in range(1, n_max + 1):
-        if qualifies(rate, target, n, alpha) and (not stable or all(
-                qualifies(rate, target, m, alpha) for m in range(n, 2 * n + 1))):
+        if not qualifies(rate, target, n, alpha):
+            continue
+        if not stable or all(qualifies(rate, target, m, alpha)
+                             for m in range(n, 2 * n + 1)):
             return n
     return None
 # [/book:sample_size]
@@ -141,7 +144,8 @@ def brier(forecasts, outcomes):
 
 def coverage_risk(forecasts, outcomes, threshold):
     """Automate cases with forecast >= threshold; refer the rest.
-    Risk among automated cases is None (unknown) when none is automated."""
+    Risk among automated cases is None (unknown) when none is
+    automated."""
     q, y = _paired(forecasts, outcomes)
     auto = [b for a, b in zip(q, y) if a >= threshold]
     coverage = len(auto) / len(y)
@@ -379,10 +383,11 @@ Bracket = namedtuple('Bracket', 'lower upper converged')
 def radius_bracket(A, tol=1e-12, max_iter=200_000):
     """Guaranteed enclosure lower <= rho(A) <= upper, A nonnegative.
 
-    rho(A) is the largest radius of A's strongly connected blocks, so a
-    reducible matrix is split first. Each block is shifted to B = A + I,
-    which is primitive, and for any x > 0 the Collatz-Wielandt ratios
-    satisfy min (Bx)_i/x_i <= rho(B) <= max (Bx)_i/x_i. Power steps tighten
+    rho(A) is the largest radius of A's strongly connected blocks,
+    so a reducible matrix is split first. Each block is shifted to
+    B = A + I, which is primitive, and for any x > 0 the
+    Collatz-Wielandt ratios satisfy
+    min (Bx)_i/x_i <= rho(B) <= max (Bx)_i/x_i. Power steps tighten
     both sides; if they do not meet, the enclosure is still valid but
     `converged` is False."""
     A = check_matrix(A)
@@ -394,7 +399,8 @@ def radius_bracket(A, tol=1e-12, max_iter=200_000):
         B = [[A[i][j] + (i == j) for j in block] for i in block]
         x = [1.0] * len(block)
         for _ in range(max_iter):
-            y = [math.fsum(b * v for b, v in zip(row, x)) for row in B]
+            y = [math.fsum(b * v for b, v in zip(row, x))
+                 for row in B]
             ratios = [yi / xi for yi, xi in zip(y, x)]
             b_lo, b_hi = min(ratios) - 1.0, max(ratios) - 1.0
             if b_hi - b_lo <= tol * max(1.0, b_hi):
@@ -406,7 +412,8 @@ def radius_bracket(A, tol=1e-12, max_iter=200_000):
         lo, hi = max(lo, b_lo), max(hi, b_hi)
     if hi == 0.0:
         return Bracket(0.0, 0.0, True)             # no cycle at all
-    slack = 16 * len(A) * EPS * (1.0 + hi)          # floating-point rounding
+    # allowance for floating-point rounding
+    slack = 16 * len(A) * EPS * (1.0 + hi)
     return Bracket(max(0.0, lo - slack), hi + slack, converged)
 
 
@@ -423,14 +430,16 @@ def spectral_radius(A):
     """Point estimate (midpoint of the enclosure); never a bound."""
     b = radius_bracket(A)
     if not b.converged:
-        raise ArithmeticError('radius not resolved; use radius_bracket')
+        raise ArithmeticError(
+            'radius not resolved; use radius_bracket')
     return (b.lower + b.upper) / 2
 
 
 def upper_matrix(counts, alpha=0.05):
     """Simultaneous exact upper bounds for measured Bernoulli edges.
-    None = declared structural zero; UNKNOWN = unmeasured edge, bounded
-    by 1 (no evidence). Alpha is split over the measured edges."""
+    None = declared structural zero; UNKNOWN = unmeasured edge,
+    bounded by 1 (no evidence). Alpha is split over the measured
+    edges."""
     n = check_counts(counts)
     measured = [(i, j) for i in range(n) for j in range(n)
                 if counts[i][j] not in (None, UNKNOWN)]
@@ -447,7 +456,7 @@ def upper_matrix(counts, alpha=0.05):
 
 
 def radius_upper(counts, alpha=0.05):
-    """Valid upper enclosure of rho for the simultaneous bound matrix."""
+    """Upper enclosure of rho for the simultaneous bound matrix."""
     return radius_bracket(upper_matrix(counts, alpha)).upper
 # [/book:radius]
 
@@ -475,7 +484,8 @@ def corrected_rate(observed, sens, spec):
     """Rogan-Gladen correction; valid only if sens + spec > 1."""
     if sens + spec <= 1:
         raise ValueError("evaluator carries no information")
-    return min(1.0, max(0.0, (observed + spec - 1) / (sens + spec - 1)))
+    corrected = (observed + spec - 1) / (sens + spec - 1)
+    return min(1.0, max(0.0, corrected))
 # [/book:evaluator]
 
 
@@ -607,8 +617,9 @@ def subgroup_check(results, floors, alpha=0.05):
     report = {}
     for group, (x, n) in results.items():
         lb = lower(x, n, a) if n else None
+        passes = lb is not None and lb >= floors[group]
         report[group] = {"rate": x / n if n else None, "lower": lb,
-                         "passes": lb is not None and lb >= floors[group]}
+                         "passes": passes}
     return report
 # [/book:floors]
 

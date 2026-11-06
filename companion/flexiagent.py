@@ -102,15 +102,19 @@ class Service:
                 raise Rejected('Current authority does not permit effect')
             if self.policy_revision() != p['policy_revision']:
                 raise Rejected('Policy changed')
-            cur=self.db.execute('''UPDATE records SET address=?, revision=revision+1,
-              writes=writes+1 WHERE tenant=? AND rid=? AND revision=?''',
-              (p['address'],p['tenant'],p['rid'],p['expected_revision']))
+            cur=self.db.execute(
+                '''UPDATE records SET address=?, revision=revision+1,
+                   writes=writes+1
+                   WHERE tenant=? AND rid=? AND revision=?''',
+                (p['address'],p['tenant'],p['rid'],
+                 p['expected_revision']))
             if cur.rowcount != 1: raise Rejected('Record conflict')
             receipt=dict(op=p['op'],mission=p['mission'],tenant=p['tenant'],
                          rid=p['rid'],address=p['address'],
                          revision=p['expected_revision']+1)
             self.db.execute('INSERT INTO operations VALUES(?,?,?)',
-                            (p['op'],digest(p),json.dumps(receipt,sort_keys=True)))
+                            (p['op'],digest(p),
+                             json.dumps(receipt,sort_keys=True)))
             self.db.execute('COMMIT')
         except Exception:
             if self.db.in_transaction: self.db.execute('ROLLBACK')
@@ -152,14 +156,17 @@ class Service:
 
 # [book:execute]
 def execute(service,p,fault=None):
-    """Bounded execute-reconcile-verify path; does not invent new permission."""
+    """Bounded execute-reconcile-verify path; it does not invent
+    new permission."""
     try:
         receipt=service.commit(p,fault=fault)
     except UncertainCommit:
         receipt=service.reconcile(p)
-        if receipt is None: raise Rejected('Unresolved external outcome')
+        if receipt is None:
+            raise Rejected('Unresolved external outcome')
     row=service.record(p['tenant'],p['rid'])
-    if row['address'] != p['address'] or row['revision'] != receipt['revision']:
+    if (row['address'] != p['address']
+            or row['revision'] != receipt['revision']):
         raise Rejected('Final-state verification failed')
     return receipt
 
